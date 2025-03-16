@@ -22,11 +22,6 @@ npm install
 node main.js
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 
