@@ -1,0 +1,20 @@
+{
+  "name": "smurfbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "mysql2": "^3.13.0",
+    "node-fetch": "^3.3.2",
+    "ollama": "^0.5.14",
+    "tmi.js": "^1.8.5",
+    "ws": "^8.18.1"
+  }
+}
