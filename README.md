@@ -13,7 +13,7 @@
 ## Install
 
 ```sh
-git clone [https://github.com/Andersonleon/Smurfbot.git
+git clone https://github.com/Andersonleon/Smurfbot.git
 cd Smurfbot
 ```
 
