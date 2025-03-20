@@ -13,6 +13,11 @@
 ## Install
 
 ```sh
+git clone [https://github.com/Andersonleon/Smurfbot.git
+cd Smurfbot
+```
+
+```sh
 npm install
 ```
 
