@@ -20,10 +20,6 @@ git clone https://github.com/Andersonleon/Smurfbot.git
 
 ```sh
 cd Smurfbot
-```
-
-```sh
-cd Smurfbot
 npm install
 ```
 
