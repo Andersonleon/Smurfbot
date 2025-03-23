@@ -10,9 +10,15 @@
 
 ### ✨ [Demo](https://smurfbot.com)
 
-## Install
-
+## Clone the Repository 
 ```sh
+git clone https://github.com/Andersonleon/Smurfbot.git
+```
+
+
+## Install
+```sh
+cd Smurfbot
 npm install
 ```
 
@@ -22,11 +28,7 @@ npm install
 node main.js
 ```
 
-## Run tests
 
-```sh
-npm run test
-```
 
 ## Author
 

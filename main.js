@@ -1,12 +1,15 @@
-const tmi = require('tmi.js');
-const mysql = require('mysql2');
-const WebSocket = require('ws');
+import tmi from "tmi.js";
+import mysql from "mysql2";
+import ollama from "ollama";
+import WebSocket from "ws";
 const wss = new WebSocket.Server({ port: 3002 });
-const { default: ollama } = require('ollama');
-const fetch = require('node-fetch');
-require('dotenv').config();
+import fetch from 'node-fetch';
+import { configDotenv } from "dotenv";
 
 // BEHOLD MY MESSSY CODE HAHAHAHA
+
+
+configDotenv();
 
 
 // Configuration from environment variables
@@ -17,6 +20,7 @@ const dbHost = process.env.DB_HOST;
 const dbName = process.env.DB_NAME;
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
+
 
 // Twitch client setup
 const client = new tmi.Client({
@@ -33,6 +37,8 @@ const client = new tmi.Client({
 
 // Database connection setup
 const db = mysql.createConnection({
+    
+
     host: dbHost,
     user: dbUser,
     password: dbPassword,
@@ -209,13 +215,22 @@ async function handleWorkCommand(channel, tags) {
             result = [{ userpoints: 0 }];
             console.log(`[Points] New user ${tags.username} worked for the first time.`);
         }
-        const earnedPoints = Math.floor(Math.random() * 10);
-        await db.promise().query('UPDATE points SET userpoints = userpoints + ? WHERE twitchuser = ?', [earnedPoints, tags.username]);
-        client.say(channel, `${tags.username} has earned ${earnedPoints} extra points to spend from all there hard work`);
+
+        const earnedPoints = Math.floor(Math.random() * 40) + 1; 
+        const taxmanTakes = Math.floor(earnedPoints * 0.4); // Taxman takes 40%
+        const remainingPoints = earnedPoints - taxmanTakes;
+
+        client.say(channel, `${tags.username} has earned ${earnedPoints} points from working hard but the taxman came and took ${taxmanTakes} points. You have ${remainingPoints} points left for yourself LMAO.`);
+        await db.promise().query('UPDATE points SET userpoints = userpoints + ? WHERE twitchuser = ?', [remainingPoints, tags.username]);
+        await db.promise().query('UPDATE points SET userpoints = userpoints + ? WHERE twitchuser = ?', [taxmanTakes, 'smurffb0t']);
+        
         console.log(`[Points] ${tags.username} earned ${earnedPoints} points from !work.`);
     } catch (err) {
         console.error(`[Database] Error processing work command: ${err}`);
+    
+    
     }
+
 }
 
 // Function to !gamble
