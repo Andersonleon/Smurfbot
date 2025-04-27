@@ -37,7 +37,7 @@ node main.js
 
 * Website: https://leonanderson.uk
 * Github: [@Andersonleon](https://github.com/Andersonleon)
-* LinkedIn: [@https:\/\/www.linkedin.com\/in\/leonanderson2\/](/https:\/\/www.linkedin.com\/in\/leonanderson2\/)
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/leonanderson2\/](https://www.linkedin.com/in/leonanderson2/)
 
 ## Show your support
 
